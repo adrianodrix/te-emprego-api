@@ -1,0 +1,19 @@
+{
+  "name": "te-emprego-api",
+  "version": "1.0.0",
+  "description": "API para Treinamento JS do teemprego.com.br",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adrianodrix/te-emprego-api.git"
+  },
+  "author": "Adriano Santos <adrianodrix@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/adrianodrix/te-emprego-api/issues"
+  },
+  "homepage": "https://github.com/adrianodrix/te-emprego-api#readme"
+}
