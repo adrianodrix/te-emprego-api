@@ -15,5 +15,13 @@
   "bugs": {
     "url": "https://github.com/adrianodrix/te-emprego-api/issues"
   },
-  "homepage": "https://github.com/adrianodrix/te-emprego-api#readme"
+  "homepage": "https://github.com/adrianodrix/te-emprego-api#readme",
+  "dependencies": {
+    "express": "^4.16.4"
+  },
+  "devDependencies": {
+    "eslint": "^5.15.3",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.16.0"
+  }
 }
