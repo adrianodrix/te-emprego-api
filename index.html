@@ -4,28 +4,43 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
+  <title>Consulta CEP</title>
 </head>
 <body>
-  <button id="btn_create">Create Table Row</button>
-  <table id="table">
-    <thead>
-      <tr><th>ID</th></tr>
-    </thead>
-    <tbody>      
-    </tbody>
-  </table>
-
+  <form>
+    <label for="cep">Cep</label>
+    <input type="text" name="cep" value="" size="10"><br/>
+    <label for="street">Street</label>
+    <input type="text" name="street" value="" size="90"><br/>
+    <label for="neighborhood">Neighborhood</label>
+    <input type="text" name="neighborhood" value="" size="50"><br/>
+    <label for="city">City</label>
+    <input type="text" name="city" value="" size="40"><br/>
+    <label for="state">State</label>
+    <input type="text" name="state" value="" size="2"><br/>
+  </form>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script>
-    let acount = 0
+    $(function () {
+      $('input[name="cep"]').blur(function(e) {
+        let cep = $('input[name="cep"]').val() || ''
+    
+        if (!cep) {
+          return
+        }
 
-    $('#btn_create').on('click', () => {
-      ++acount
-      $('#table > tbody:last').append(`<tr><td>${acount}</td></tr>`)
-    })
-    $('#table > tbody').on('click', 'tr:first', () => {
-      alert('Helloo')
+        let url = 'http://viacep.com.br/ws/' + cep + '/json'
+        $.getJSON(url, (data) => {
+          if ("error" in data) {
+            return  
+          }
+
+          $('input[name="street"]').val(data.logradouro)
+          $('input[name="neighborhood"]').val(data.bairro)
+          $('input[name="city"]').val(data.localidade)
+          $('input[name="state"]').val(data.uf)
+        })    
+      })  
     })
   </script>
 </body>
