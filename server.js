@@ -1,13 +1,21 @@
 require('dotenv').config()
 require('module-alias/register')
 
+const chalk = require('chalk')
+const mongoose = require('mongoose')
+const boot = require('@service/boot')
+
+
+mongoose.set('useNewUrlParser', true)
+mongoose.set('useCreateIndex', true)
+
 const config = require('@config')
 
-const app = require('@app')
-
-app.listen(config.app.port, (err) => {
-  if (err) {
-    return console.log('error')
-  }
-  return console.log(`iniciou em http://localhost:${config.app.port}`)
-})
+console.clear()
+if (config.db.connectionString) {
+  mongoose
+    .connect(config.db.connectionString, boot)
+} else {
+  console.log('Connection String não encontrada.')
+  console.log(chalk.yellow('Você já criou seu arquivo .env?\n'))
+}

@@ -8,6 +8,9 @@
       "@app/*": ["src/app.js"],
       "@config/*": ["src/config"],
       "@controller/*": ["src/controller"],      
+      "@helper/*": ["src/helper"],      
+      "@model/*": ["src/model"],      
+      "@service/*": ["src/service"],      
     }
   },
   "exclude": ["node_modules", "dist"]
